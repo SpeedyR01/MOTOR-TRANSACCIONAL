@@ -1,4 +1,3 @@
-```markdown
 # Manual de Usuario y Guía Técnica Rápida
 
 Versión: 1.0  
