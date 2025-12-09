@@ -1,0 +1,430 @@
+/* ============================================
+   MOTOR TRANSACCIONAL - ESTILOS PRINCIPALES
+   ============================================ */
+
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colores principales */
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    --danger-color: #e74c3c;
+    
+    /* Colores de texto */
+    --text-primary: #333;
+    --text-secondary: #666;
+    --text-light: #999;
+    
+    /* Colores de fondo */
+    --bg-white: #ffffff;
+    --bg-light: #f8f9fa;
+    
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.3);
+    
+    /* Bordes */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 20px;
+    
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--primary-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: 40px;
+    max-width: 550px;
+    width: 100%;
+    animation: fadeIn var(--transition-slow) ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   ENCABEZADO
+   ============================================ */
+
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    color: var(--text-primary);
+    font-size: 28px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.header p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.info-badge {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.info-badge span {
+    background: var(--bg-light);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* ============================================
+   SELECTOR DE TIPO DE TRANSACCIÓN
+   ============================================ */
+
+.type-selector {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.type-btn {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    background: var(--bg-white);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.type-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.type-btn.active.payment {
+    background: var(--primary-gradient);
+    border-color: #667eea;
+    color: white;
+}
+
+.type-btn.active.refund {
+    background: var(--success-gradient);
+    border-color: #11998e;
+    color: white;
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius-sm);
+    font-size: 15px;
+    transition: all var(--transition-normal);
+    font-family: inherit;
+    color: var(--text-primary);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon::before {
+    content: '$';
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.input-icon input {
+    padding-left: 30px;
+}
+
+.field-help {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+/* ============================================
+   BOTÓN DE ENVÍO
+   ============================================ */
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn.payment {
+    background: var(--primary-gradient);
+    color: white;
+}
+
+.submit-btn.refund {
+    background: var(--success-gradient);
+    color: white;
+}
+
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ============================================
+   ALERTAS
+   ============================================ */
+
+.alert {
+    padding: 15px;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 20px;
+    font-size: 14px;
+    animation: slideDown var(--transition-normal) ease;
+    display: none;
+    position: relative;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.alert.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+/* ============================================
+   LOADING SPINNER
+   ============================================ */
+
+.loading {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { 
+        transform: rotate(360deg); 
+    }
+}
+
+/* ============================================
+   PIE DE FORMULARIO
+   ============================================ */
+
+.form-footer {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.form-footer p {
+    font-size: 12px;
+    color: var(--text-light);
+    margin: 5px 0;
+}
+
+/* ============================================
+   SECCIÓN DE TRANSACCIONES RECIENTES
+   ============================================ */
+
+.recent-section {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.recent-section h3 {
+    color: var(--text-primary);
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.transaction-card {
+    background: var(--bg-light);
+    padding: 15px;
+    border-radius: var(--border-radius-sm);
+    border-left: 4px solid #667eea;
+}
+
+.transaction-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.transaction-card strong {
+    color: var(--text-primary);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .type-selector {
+        flex-direction: column;
+    }
+
+    .info-badge {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .info-badge span {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        padding: 14px;
+        font-size: 15px;
+    }
+}
